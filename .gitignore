@@ -1,0 +1,13 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/APIGatewayAuthenticationDemo
+/APIGateway/bin/Debug/netcoreapp2.0
+/APIGateway/obj
+/AuthServer/bin/Debug/netcoreapp2.0
+/AuthServer/obj
+/ClientApp/bin/Debug/netcoreapp2.0
+/ClientApp/obj
+/CustomerAPIServices/bin/Debug/netcoreapp2.0
+/CustomerAPIServices/obj
