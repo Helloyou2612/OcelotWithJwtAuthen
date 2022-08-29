@@ -16,3 +16,16 @@
 /ClientApp6/obj
 /CustomerAPIServices6/obj
 /.vs/ProjectEvaluation
+/OcelotWithJwtAuthen6/OcelotWithJwtAuthen6/.vs/OcelotWithJwtAuthen6/DesignTimeBuild
+/OcelotWithJwtAuthen6/OcelotWithJwtAuthen6/.vs/OcelotWithJwtAuthen6/FileContentIndex
+/OcelotWithJwtAuthen6/OcelotWithJwtAuthen6/.vs
+/OcelotWithJwtAuthen6/OcelotWithJwtAuthen6/APIGateway/bin/Debug/net6.0
+/OcelotWithJwtAuthen6/OcelotWithJwtAuthen6/APIGateway/obj
+/OcelotWithJwtAuthen6/OcelotWithJwtAuthen6/APIGateway/Controllers/WeatherForecastController.cs
+/OcelotWithJwtAuthen6/OcelotWithJwtAuthen6/AuthServer/bin/Debug/net6.0
+/OcelotWithJwtAuthen6/OcelotWithJwtAuthen6/APIGateway/Properties/launchSettings.json
+/OcelotWithJwtAuthen6/OcelotWithJwtAuthen6/AuthServer/obj
+/OcelotWithJwtAuthen6/OcelotWithJwtAuthen6/ClientApp/bin/Debug/net6.0
+/OcelotWithJwtAuthen6/OcelotWithJwtAuthen6/ClientApp/obj
+/OcelotWithJwtAuthen6/OcelotWithJwtAuthen6/CustomerAPIServices/bin/Debug/net6.0
+/OcelotWithJwtAuthen6/OcelotWithJwtAuthen6/CustomerAPIServices/obj
