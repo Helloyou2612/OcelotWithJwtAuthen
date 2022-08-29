@@ -11,3 +11,7 @@
 /ClientApp/obj
 /CustomerAPIServices/bin/Debug/netcoreapp2.0
 /CustomerAPIServices/obj
+/APIGateway6/obj
+/AuthServer6/obj
+/ClientApp6/obj
+/CustomerAPIServices6/obj
