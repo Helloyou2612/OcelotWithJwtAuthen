@@ -21,4 +21,10 @@ public class DemoController : Controller
     {
         return Ok("hello Lam!");
     }
+
+    [HttpGet("{id}")]
+    public IActionResult Get(int id)
+    {
+        return Ok($"hello Lam - {id}");
+    }
 }
