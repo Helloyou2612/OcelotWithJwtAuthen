@@ -18,18 +18,18 @@ configuration
 // Add services to the container.
 var audienceConfig = configuration.GetSection("Audience");
 
-var signingKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(audienceConfig["Secret"]));
+var signingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(audienceConfig["Secret"]));
 var tokenValidationParameters = new TokenValidationParameters
 {
-    ValidateIssuerSigningKey = true,
-    IssuerSigningKey = signingKey,
     ValidateIssuer = true,
     ValidIssuer = audienceConfig["Iss"],
     ValidateAudience = true,
     ValidAudience = audienceConfig["Aud"],
+    ValidateIssuerSigningKey = true,
+    IssuerSigningKey = signingKey,
+    RequireExpirationTime = false,
     ValidateLifetime = true,
-    ClockSkew = TimeSpan.Zero,
-    RequireExpirationTime = true,
+    ClockSkew = TimeSpan.Zero
 };
 
 services.AddAuthentication(o =>
@@ -39,6 +39,7 @@ services.AddAuthentication(o =>
     .AddJwtBearer("TestKey", x =>
     {
         x.RequireHttpsMetadata = false;
+        x.SaveToken = true;
         x.TokenValidationParameters = tokenValidationParameters;
     });
 

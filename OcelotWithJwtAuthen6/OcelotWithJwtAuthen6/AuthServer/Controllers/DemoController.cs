@@ -6,6 +6,7 @@ using Microsoft.Extensions.Options;
 namespace AuthServer.Controllers;
 
 [Route("api/[controller]/")]
+[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
 public class DemoController : Controller
 {
     private IOptions<Audience> _settings;
@@ -16,13 +17,13 @@ public class DemoController : Controller
     }
 
     [HttpGet]
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public IActionResult Get()
     {
         return Ok("hello Lam!");
     }
 
     [HttpGet("{id}")]
+    [AllowAnonymous]
     public IActionResult Get(int id)
     {
         return Ok($"hello Lam - {id}");
