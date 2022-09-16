@@ -7,6 +7,7 @@ HttpClient client = new HttpClient();
 client.DefaultRequestHeaders.Clear();
 client.BaseAddress = new Uri("http://localhost:9050"); //gateway
 
+Console.WriteLine("\n>>>>>>>>>>>>>>>>>GATEWAY<<<<<<<<<<<<<<<<<");
 // 1. without access_token will not access the service
 //    and return 401 .
 var resWithoutToken = client.GetAsync("/customers").Result;
@@ -39,6 +40,38 @@ Console.WriteLine($"Result : {res.StatusCode}");
 Console.WriteLine(res.Content.ReadAsStringAsync().Result);
 
 
+Console.WriteLine("\n>>>>>>>>>>>>>>>>>SERVICE<<<<<<<<<<<<<<<<<");
+HttpClient client2 = new HttpClient();
+
+client2.DefaultRequestHeaders.Clear();
+client2.BaseAddress = new Uri("http://localhost:9051"); //service
+// 1. without access_token will not access the service
+//    and return 401 .
+var resServiceWithoutToken = client2.GetAsync("/api/customers").Result;
+
+Console.WriteLine($"Sending Request to /api/customers , without token.");
+Console.WriteLine($"Result : {resServiceWithoutToken.StatusCode}");
+
+//2. with access_token will access the service
+//   and return result.
+client2.DefaultRequestHeaders.Clear();
+client2.DefaultRequestHeaders.Add("Authorization", $"Bearer {jwt}");
+var resServiceWithToken = client2.GetAsync("/api/customers").Result;
+
+Console.WriteLine($"\nSend Request to /api/customers , with token.");
+Console.WriteLine($"Result : {resServiceWithToken.StatusCode}");
+Console.WriteLine(resServiceWithToken.Content.ReadAsStringAsync().Result);
+
+//3. visit no auth service 
+Console.WriteLine("\nNo Auth Service Here ");
+client2.DefaultRequestHeaders.Clear();
+var resService = client2.GetAsync("/api/customers/1").Result;
+
+Console.WriteLine($"Send Request to /api/customers/1");
+Console.WriteLine($"Result : {resService.StatusCode}");
+Console.WriteLine(resService.Content.ReadAsStringAsync().Result);
+
+Console.WriteLine("\n>>>>>>>>>>>>>>>>>AUTH CENTER<<<<<<<<<<<<<<<<<");
 //4. without access_token will not access the Auth server
 //    and return 401 
 HttpClient client1 = new HttpClient();

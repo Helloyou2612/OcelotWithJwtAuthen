@@ -1,7 +1,35 @@
 ﻿{
   "Routes": [
+    //{
+    //  "DownstreamPathTemplate": "/api/customers",
+    //  "DownstreamScheme": "http",
+    //  "DownstreamHostAndPorts": [
+    //    {
+    //      "Host": "localhost",
+    //      "Port": 9051
+    //    }
+    //  ],
+    //  "UpstreamPathTemplate": "/customers",
+    //  "UpstreamHttpMethod": [ "Get" ],
+    //  "AuthenticationOptions": {
+    //    "AuthenticationProviderKey": "TestKey",
+    //    "AllowedScopes": []
+    //  }
+    //},
+    //{
+    //  "DownstreamPathTemplate": "/api/customers/{id}",
+    //  "DownstreamScheme": "http",
+    //  "DownstreamHostAndPorts": [
+    //    {
+    //      "Host": "localhost",
+    //      "Port": 9051
+    //    }
+    //  ],
+    //  "UpstreamPathTemplate": "/customers/{id}",
+    //  "UpstreamHttpMethod": [ "Get" ]
+    //}
     {
-      "DownstreamPathTemplate": "/api/customers",
+      "DownstreamPathTemplate": "/api/{everything}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
@@ -9,37 +37,13 @@
           "Port": 9051
         }
       ],
-      "UpstreamPathTemplate": "/customers",
+      "UpstreamPathTemplate": "/{everything}",
       "UpstreamHttpMethod": [ "Get" ],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "TestKey",
         "AllowedScopes": []
       }
-    },
-    {
-      "DownstreamPathTemplate": "/api/customers/{id}",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 9051
-        }
-      ],
-      "UpstreamPathTemplate": "/customers/{id}",
-      "UpstreamHttpMethod": [ "Get" ]
     }
-    ////{
-    ////  "DownstreamPathTemplate": "/api/auth",
-    ////  "DownstreamScheme": "http",
-    ////  "DownstreamHostAndPorts": [
-    ////    {
-    ////      "Host": "localhost",
-    ////      "Port": 9059
-    ////    }
-    ////  ],
-    ////  "UpstreamPathTemplate": "/api/auth",
-    ////  "UpstreamHttpMethod": [ "Get" ]
-    ////}
   ],
   "GlobalConfiguration": {
     "BaseUrl": "http://localhost:9050",
